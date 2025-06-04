@@ -1,0 +1,60 @@
+.flexContainerGamesPerformance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.gamesPerformanceContainer {
+    width: 70%;
+}
+
+@media (max-width: 1200px) {
+    .gamesPerformanceContainer {
+        width: 110%;
+        margin-left: 100px;
+    }
+    
+    .flexContainerGamesPerformance {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+    }
+}
+
+.filter-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.filter-section label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.performance-table,
+.top-hours-table {
+    max-width: 90vw;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.performance-table th,
+.performance-table td,
+.top-hours-table th,
+.top-hours-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.performance-table th,
+.top-hours-table th {
+    background-color: #09322b;
+}

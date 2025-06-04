@@ -1,0 +1,132 @@
+.todosJuegos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#webGames {
+    margin-top: 190px;
+}
+
+.Titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.linksSinEstilo a {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6));
+    margin: 0;
+    transition: .3s;
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    flex-direction: column;
+    padding: 0;
+}
+
+.linksSinEstilo a:hover {
+    transition: .3s;
+    background-color: rgba(0, 0, 0, .5) !important;
+}
+
+.juego {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 450px;
+    width: 450px;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform;
+    transform-origin: center;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    background-color: #040c0d;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+
+.enlaceJuego {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.enlaceJuego h2 {
+    align-self: center;
+}
+
+/* Pseudo-elemento para mostrar el fondo */
+.juego::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: contain;
+    /* Cambiado de cover a contain */
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease;
+}
+
+.juego:hover {
+    box-shadow: 0px 0px 30px #cfae58;
+    transform: scale(1.08);
+    z-index: 3;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .juego {
+        width: 90%;
+        margin: 10px;
+    }
+}
+
+/* Slot Machine específico */
+#slotMachineGame {
+    background-color: black;
+    background-image: url("../../assets/first-frame-slot-machine.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#slotMachineGame:hover {
+    background-image: url("../../assets/slot-machine.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Otro juego */
+#FRATDual {
+    background-image: url("../assets/fotoPortadaInicio/FD.png");
+}
+
+#FRATDual:hover {
+    background-image: url("../assets/FRATDual.png");
+}
+
+/* Contenedor general */
+.contenedorFlex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 50px;
+    justify-content: center;
+}

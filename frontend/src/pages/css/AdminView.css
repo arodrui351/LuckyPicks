@@ -1,0 +1,130 @@
+/* contenedor general */
+.admin-user-wrapper {
+  padding: 2rem;
+  font-family: system-ui, sans-serif;
+}
+
+/* título */
+.admin-user-title {
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* tabla de usuarios */
+.admin-user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-user-table th,
+.admin-user-table td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+.admin-user-table tbody tr:hover {
+  background: #09322b;
+}
+
+.admin-user-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+}
+
+.admin-user-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90%, 500px);
+  background: #09322b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#role{
+  color: white;
+}
+#role *{
+  color: black;
+  background-color: transparent;
+}
+/* campos del formulario en el modal */
+.admin-user-modal label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #222;
+  gap: 0.4rem;
+}
+
+.admin-user-modal input,
+.admin-user-modal select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #cfae58;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+/* acciones del modal */
+.admin-user-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.admin-user-modal-actions .save {
+  background: #cfae58;
+  border: 1px solid #cfae58;
+  color: black;
+}
+.admin-user-modal-actions .save:hover {
+  background-color: transparent;
+  color: #eee;
+}
+.admin-user-modal-actions .cancel {
+  background: #c0c0c0;
+  border: 1px solid #c0c0c0  ;
+  color: black;
+}
+.admin-user-modal-actions .cancel:hover {
+  background-color: transparent;
+  color: #eee;
+}
+/* botón general */
+button {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 6px;
+}
+.tdButtonsAdminView{
+  width: 20%;
+}
+.tdButtonsAdminView button{
+  align-self: center;
+  vertical-align: middle;
+  min-width: 100px;
+}
+.verHistorial{
+  margin-right: 40px;
+}
+
+.admin-user-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.admin-user-modal-field label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #222;
+}

@@ -1,0 +1,180 @@
+
+#mainRow {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+#mainRow h1 {
+    text-align: center;
+    margin-right: 3rem;
+}
+
+#mainRow button {
+    max-width: 240px;
+    margin-bottom: 0px !important;
+}
+
+#gamesProfileTable {
+    width: 400px;
+    max-width: 100% !important;
+}
+
+#profileFilters {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-wrap: wrap;
+    padding-right: 2rem;
+}
+#profileFilters p{
+    margin-right: 10px;
+}
+#profileFilters div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profileFilters select {
+    color: white;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    padding: 12px;
+}
+
+#profileFilters select:focus {
+    border-color: #cfae58;
+}
+
+#profileFilters option {
+    color: #ccc;
+    background-color: black;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+}
+#profileFilters input {
+    width: 250px;
+    max-width: 40%;
+}
+
+th {
+    border: 0px;
+    border-bottom: 1px solid white;
+    text-align: left;
+}
+
+table {
+    border: 0px;
+}
+td{
+    border: none;
+}
+tr {
+    text-align: left;
+    border: 0px;
+    border-bottom: 1px solid white;
+}
+thead tr:hover:first-child {
+    background-color: transparent;
+}
+tr:hover {
+    background-color: #09322b;
+    border-bottom: 1px solid #cfae58;
+}
+
+#profileAllTables {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#profileLeftTables {
+    width: 35%;
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#profileRightTable {
+    width: 50%;
+}
+#profileRightTable table{
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    #mainRow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #profileTimesPlayed {
+        width: 400px;
+        max-width: 100% !important;
+    }
+    #profileFilters {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 0px !important;
+    }
+    #profileFilters div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    #profileAllTables {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    #profileLeftTables {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        justify-content: space-between;
+        
+    }
+    #profileAddBalance{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #profileTimesPlayed{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .table100{
+        width: 70%;
+    }
+    #profileRightTable {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+    }
+    #profileRightTable table{
+        width: 70%;
+    }
+}

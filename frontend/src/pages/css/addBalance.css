@@ -1,0 +1,191 @@
+.todasOpciones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+    align-self: center;
+    margin: 0 auto;
+}
+
+#webAddBalance {
+    margin-top: 190px;
+}
+
+.Titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.linksSinEstilo a {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6));
+    margin: 0;
+    transition: .3s;
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    flex-direction: column;
+    padding: 0;
+}
+
+.linksSinEstilo a:hover {
+    transition: .3s;
+    background-color: rgba(0, 0, 0, .5) !important;
+}
+
+.opcion {
+    height: 250px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-size 0.2s ease;
+
+    will-change: transform;
+    transform-origin: center;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    background-color: #040c0d;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+
+    /* Nueva configuración para imagen de fondo */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.enlaceAddBalance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.enlaceAddBalance h2 {
+    align-self: center;
+    color: white;
+}
+
+/* Eliminar ::before porque causa duplicado visual */
+.opcion::before {
+    content: none;
+}
+
+.opcion:hover {
+    transform: scale(1.08);
+    z-index: 3;
+}
+.input-error {
+    border: 2px solid red;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+    .opcion {
+        width: 90%;
+        margin: 10px;
+    }
+}
+
+#saldo1 {
+    background-image: url("../../assets/saldo/1.png");
+    background-size: 30%;
+    
+}
+
+#saldo1:hover {
+    background-size: 50%;
+}
+
+#saldo2 {
+    background-image: url("../../assets/saldo/2.PNG");
+    background-size: 30%;
+}
+
+#saldo2:hover {
+    background-size: 50%;
+}
+
+#saldo3 {
+    background-image: url("../../assets/saldo/3.PNG");
+    background-size: 30%;
+}
+
+#saldo3:hover {
+    background-size: 50%;
+}
+
+#saldo4 {
+    background-image: url("../../assets/saldo/4.PNG");
+    background-size: 50%;
+}
+
+#saldo4:hover {
+    background-size: 70%;
+}
+
+#saldo5 {
+    background-image: url("../../assets/saldo/5.PNG");
+    background-size: 50%;
+}
+
+#saldo5:hover {
+    background-size: 70%;
+}
+
+#saldo6 {
+    background-image: url("../../assets/saldo/6.PNG");
+    background-size: 85%;
+}
+
+#saldo6:hover {
+    background-size: 120%;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.modal-content {
+    height: 300px;
+    max-height: 70%;
+    width: 350px;
+    max-width: 60%;
+    background: #09322b;
+    padding: 40px 60px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 7px solid #6b3e26;
+}
+.modal-buttons-balance{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal-buttons-balance button{
+    width: 40%;
+    border: 1px solid #cfae58;
+}

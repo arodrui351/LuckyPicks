@@ -1,0 +1,26 @@
+#juego1{
+    color: white;
+}
+.botonesJuego{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+.botonesJuego button{
+    
+}
+#startGame{
+    width: 150px;
+    background-color: green;
+    color: white;
+}
+#startGame:hover{
+    color: white;
+}
+.apuesta{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
