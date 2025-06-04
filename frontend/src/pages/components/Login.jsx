@@ -9,7 +9,7 @@ export default function Login() {
     const [usernameLogin, setUsernameLogin] = useState('');
     const [passwordLogin, setPasswordLogin] = useState('');
     const [isSignUpVisible, setIsSignUpVisible] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(''); // Estado para manejar errores
+    const [errorMessage, setErrorMessage] = useState('');
 
 
     const signUpView = () => setIsSignUpVisible(true);
@@ -17,13 +17,12 @@ export default function Login() {
 
     const setCookie = (name, value, days = 30) => {
         const expires = new Date(Date.now() + days * 864e5).toUTCString();
-        // Secure, SameSite=Strict, path=/
         document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; Secure; SameSite=Strict`;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrorMessage(''); // Limpiar errores previos
+        setErrorMessage('');
 
         try {
             const res = await fetch('http://localhost:8000/api/register', {
@@ -75,7 +74,6 @@ export default function Login() {
                 localStorage.setItem('username', data.username);
                 localStorage.setItem('role', data.role);
 
-                // Mejor guardar banned_until en cookie secure (aunque no puede ser httpOnly desde JS)
                 setCookie('banned_until', data.banned_until || '');
                 setCookie('balance', data.balance || '');
 

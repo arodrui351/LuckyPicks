@@ -7,7 +7,7 @@ export default function Home() {
     const [topPlayers, setTopPlayers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/top-wins') // Asegúrate de que esta URL sea correcta
+        fetch('http://localhost:8000/api/top-wins')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error en la respuesta del servidor');

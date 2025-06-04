@@ -15,11 +15,10 @@ export default function GamesPerformance() {
     });
 
     const [performance, setPerformance] = useState([]);
-    const [topIntervals, setTopIntervals] = useState([]); // Cambiado de topHours a topIntervals
+    const [topIntervals, setTopIntervals] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Función para formatear números con seguridad
     const formatNumber = (num) => {
         const n = parseFloat(num);
         return isNaN(n) ? '0.00' : n.toFixed(2);
@@ -50,7 +49,7 @@ export default function GamesPerformance() {
             const data = await res.json();
 
             setPerformance(data.performance || []);
-            setTopIntervals(data.top_intervals || []); // Ajustado para el nuevo campo
+            setTopIntervals(data.top_intervals || []);
         } catch (err) {
             setError(err.message);
             setPerformance([]);

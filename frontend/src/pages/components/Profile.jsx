@@ -79,11 +79,11 @@ export default function AccountHistory() {
 
   const renderSpendTx = () => {
     if (!transactions || transactions.length === 0) {
-      return <tr><td colSpan="2">No hay transacciones spend.</td></tr>;
+      return <tr><td colSpan="2">No hay transacciones .</td></tr>;
     }
     const spends = transactions.filter(tx => tx.type === 'spend');
     if (spends.length === 0) {
-      return <tr><td colSpan="2">No hay transacciones spend.</td></tr>;
+      return <tr><td colSpan="2">No hay transacciones.</td></tr>;
     }
     return spends.map(tx => (
       <tr key={tx.id}>

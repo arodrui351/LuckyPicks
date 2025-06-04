@@ -18,7 +18,6 @@ class TransactionController extends Controller
 
         $user = User::findOrFail($request->user_id);
 
-        // Crear la transacción
         $transaction = Transaction::create([
             'user_id' => $user->id,
             'type' => $request->type,

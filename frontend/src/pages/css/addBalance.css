@@ -59,7 +59,6 @@
     justify-content: end;
 
 
-    /* Nueva configuración para imagen de fondo */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -76,7 +75,6 @@
     color: white;
 }
 
-/* Eliminar ::before porque causa duplicado visual */
 .opcion::before {
     content: none;
 }

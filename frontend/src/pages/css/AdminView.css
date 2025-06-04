@@ -1,17 +1,14 @@
-/* contenedor general */
 .admin-user-wrapper {
   padding: 2rem;
   font-family: system-ui, sans-serif;
 }
 
-/* título */
 .admin-user-title {
   margin-bottom: 1rem;
   width: 100%;
   text-align: center;
 }
 
-/* tabla de usuarios */
 .admin-user-table {
   width: 100%;
   border-collapse: collapse;
@@ -55,7 +52,6 @@
   color: black;
   background-color: transparent;
 }
-/* campos del formulario en el modal */
 .admin-user-modal label {
   display: flex;
   flex-direction: column;
@@ -74,7 +70,6 @@
   font-size: 1rem;
 }
 
-/* acciones del modal */
 .admin-user-modal-actions {
   display: flex;
   gap: 0.75rem;
@@ -98,7 +93,6 @@
   background-color: transparent;
   color: #eee;
 }
-/* botón general */
 button {
   cursor: pointer;
   padding: 0.5rem 0.75rem;

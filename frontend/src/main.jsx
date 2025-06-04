@@ -49,10 +49,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* Ruta para mostrar el componente Banned */}
         <Route path="/banned" element={<Banned bannedUntil={bannedUntil} />} />
 
-        {/* Login sólo accesible si no autenticado y no baneado */}
         <Route
           path="/"
           element={
@@ -66,7 +64,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           }
         />
 
-        {/* Rutas protegidas para usuarios no baneados */}
         <Route
           path="/Home"
           element={
@@ -128,7 +125,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           }
         />
 
-        {/* Rutas admin protegidas */}
         <Route
           path="/profile"
           element={
@@ -166,7 +162,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           }
         />
 
-        {/* Ruta catch-all */}
         <Route
           path="*"
           element={
