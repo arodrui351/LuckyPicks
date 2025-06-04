@@ -1,0 +1,163 @@
+#bestPrizeHome {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        margin: 0px;
+    }
+}
+
+#podiumHome {
+    margin-top: 4rem;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+#podiumHome div h1 {
+    text-align: center;
+}
+
+#first h2 {
+    background-color: #ffd700;
+    width: 250px;
+    height: 230px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    margin: 0;
+    color: #040c0d;
+
+}
+
+#second h2 {
+    background-color: #c0c0c0;
+    width: 250px;
+    height: 150px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: #040c0d;
+}
+#tableProfileHome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+#tableProfileHome div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 400px;
+    max-width: calc(70% - 4rem - 6px);
+    background-color: #09322b;
+    border-radius: 30px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 15px;
+    color: #ccc;
+    border: 3px solid #cfae58;
+}
+#third h2 {
+    background-color: #cd7f32;
+    width: 250px;
+    height: 100px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #040c0d;
+}
+
+@media screen and (max-width: 1200px) {
+    #bestPrizeHome {
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+        }
+    }
+
+    #podiumHome {
+        margin-top: 2rem
+    }
+
+    #first {
+        width: 100px;
+
+    }
+
+    #third {
+        width: 100px;
+
+    }
+
+    #second {
+        width: 100px;
+
+    }
+
+
+    #first h2 {
+        width: 100px;
+        height: 150px;
+        margin: 0px;
+        font-size: 2rem;
+
+    }
+
+    #third h2 {
+        width: 100px;
+        height: 70px;
+        margin: 0px;
+        font-size: 2rem;
+
+    }
+
+    #second h2 {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+
+    }
+
+    #third h1 {
+        margin: 0;
+        width: 100%;
+        font-size: 1.5rem;
+
+    }
+
+    #second h1 {
+        margin: 0;
+        width: 100%;
+        font-size: 1.5rem;
+
+    }
+
+    #first h1 {
+        margin: 0;
+        width: 100%;
+        font-size: 1.5rem;
+
+    }
+}

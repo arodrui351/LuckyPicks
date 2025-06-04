@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Session;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class SessionController extends Controller
 {
@@ -29,5 +31,17 @@ class SessionController extends Controller
 
         return response()->json($session, 201);
     }
+    public function topWins()
+    {
+        $topWins = DB::table('sessions')
+            ->join('users', 'sessions.user_id', '=', 'users.id')
+            ->select('users.username', 'sessions.win_amount')
+            ->orderByDesc('sessions.win_amount')
+            ->limit(10)
+            ->get();
+
+        return response()->json($topWins);
+    }
+
 
 }

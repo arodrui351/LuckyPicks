@@ -16,9 +16,9 @@ export default function AccountHistory() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const [showSessionsCount, setShowSessionsCount] = useState(true);
-  const [showSpendTransactions, setShowSpendTransactions] = useState(true);
-  const [showSessionDetails, setShowSessionDetails] = useState(true);
+  const [showSessionsCount, setShowSessionsCount] = useState(false);
+  const [showSpendTransactions, setShowSpendTransactions] = useState(false);
+  const [showSessionDetails, setShowSessionDetails] = useState(false);
 
   const userId = localStorage.getItem('id');
 

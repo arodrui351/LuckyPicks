@@ -1,3 +1,10 @@
+#table{
+    background-color: #09322b;
+    width: 1000px;
+    height: 650px;
+    border: 10px solid #6b3e26;
+    border-radius: 40px 40px 100% 100%;
+}
 #juego1{
     color: white;
 }

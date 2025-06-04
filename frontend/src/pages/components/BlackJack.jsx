@@ -58,6 +58,18 @@ export default function BlackJack() {
 
             </div>
             <h1>Black Jack</h1>
+            <div id='table'>
+                <div id='dealerBlackJack'>
+                    <div>
+                        <p className='simbol'>♥️</p>
+                        
+                        <p className='value'>8</p>
+                    </div>
+                </div>
+                <div id='playerBlackJack'>
+                    
+                </div>
+            </div>
             <div className='botonesJuego'>
 
                 <div className='apuesta'>

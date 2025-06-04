@@ -13,6 +13,8 @@ use App\Http\Controllers\GamePerformanceController;
 use App\Http\Controllers\BanController;
 use App\Http\Controllers\AccountHistoryController;
 
+Route::get('/top-wins', [SessionController::class, 'topWins']);
+
 
 Route::post('/account/history', [AccountHistoryController::class, 'index']);
 
