@@ -28,30 +28,51 @@ export default function Slot() {
         bar: 25, lemon: 15, melon: 18, seven: 50
     };
 
+    const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
+    const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+
     const registrarTransaccion = async (tipo, cantidad) => {
-        await fetch('http://localhost:8000/api/transaction', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                user_id: localStorage.getItem('id'),
-                type: tipo,
-                amount: cantidad,
-            }),
-        });
+        try {
+            const res = await fetch(`${API_URL}/transaction`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user_id: localStorage.getItem('id'),
+                    type: tipo,
+                    amount: cantidad,
+                }),
+            });
+
+            if (!res.ok) throw new Error("Error al registrar transacción");
+        } catch (error) {
+            console.error("Error en registrarTransaccion:", error);
+        }
     };
 
     const registrarSesion = async (betAmount, winAmount, endedAt) => {
-        await fetch('http://localhost:8000/api/sessions', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                user_id: localStorage.getItem('id'),
-                game_id: 2,
-                bet_amount: betAmount,
-                win_amount: winAmount,
-                ended_at: endedAt
-            }),
-        });
+        try {
+            const res = await fetch(`${API_URL}/sessions`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user_id: localStorage.getItem('id'),
+                    game_id: 2,
+                    bet_amount: betAmount,
+                    win_amount: winAmount,
+                    ended_at: endedAt,
+                }),
+            });
+
+            if (!res.ok) throw new Error("Error al registrar sesión");
+        } catch (error) {
+            console.error("Error en registrarSesion:", error);
+        }
     };
 
     const formatDateForMySQL = (date) => {
@@ -61,18 +82,29 @@ export default function Slot() {
     };
 
     const updateBalance = async (amount) => {
-        const res = await fetch('http://localhost:8000/api/update-balance', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount, id: localStorage.getItem('id') }),
-        });
-        const data = await res.json();
-        const oldBalance = parseFloat(document.cookie.match(/balance=(\d+(\.\d+)?)/)?.[1] || 0);
-        document.cookie = `balance=${data.balance}; path=/; max-age=2592000`;
+        try {
+            const res = await fetch(`${API_URL}/update-balance`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ amount, id: localStorage.getItem('id') }),
+            });
 
-        triggerBalanceAnimation(oldBalance, data.balance);
-        setBalance(data.balance);
+            if (!res.ok) throw new Error("Error al actualizar balance");
+
+            const data = await res.json();
+            const oldBalance = parseFloat(document.cookie.match(/balance=(\d+(\.\d+)?)/)?.[1] || 0);
+            document.cookie = `balance=${data.balance}; path=/; max-age=2592000`;
+
+            triggerBalanceAnimation(oldBalance, data.balance);
+            setBalance(data.balance);
+        } catch (error) {
+            console.error("Error en updateBalance:", error);
+        }
     };
+
 
     const triggerBalanceAnimation = (oldBalance, newBalance) => {
         const change = newBalance - oldBalance;

@@ -22,33 +22,45 @@ export default function AccountHistory() {
 
   const userId = localStorage.getItem('id');
 
+  const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
+  const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+
   const fetchHistory = async () => {
     setLoading(true);
     setError(null);
+
     try {
-      const res = await fetch('http://localhost:8000/api/account/history', {
+      const res = await fetch(`${API_URL}/account/history`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           user_id: userId,
           start_date: startDate,
           end_date: endDate,
-          order
-        })
+          order,
+        }),
       });
 
-      if (!res.ok) throw new Error('No se pudo obtener historial');
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`No se pudo obtener historial: ${text}`);
+      }
 
       const data = await res.json();
       setTransactions(data.spend_transactions || []);
       setSessionsCount(data.sessions_count || []);
       setSessionsDetail(data.sessions_detail || []);
+
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
+
 
   useEffect(() => {
     fetchHistory();
@@ -66,11 +78,11 @@ export default function AccountHistory() {
   const renderSessionsCount = () =>
     sessionsCount.length
       ? sessionsCount.map(s => (
-          <tr key={s.name}>
-            <td>{s.name}</td>
-            <td>{s.plays}</td>
-          </tr>
-        ))
+        <tr key={s.name}>
+          <td>{s.name}</td>
+          <td>{s.plays}</td>
+        </tr>
+      ))
       : (
         <tr>
           <td colSpan="2">Sin partidas registradas.</td>
@@ -102,13 +114,13 @@ export default function AccountHistory() {
   const renderSessionDetail = () =>
     sortedSessionsDetail.length
       ? sortedSessionsDetail.map(s => (
-          <tr key={s.id}>
-            <td>{s.game_name}</td>
-            <td>{s.bet_amount}</td>
-            <td>{s.win_amount}</td>
-            <td>{new Date(s.started_at).toLocaleString()}</td>
-          </tr>
-        ))
+        <tr key={s.id}>
+          <td>{s.game_name}</td>
+          <td>{s.bet_amount}</td>
+          <td>{s.win_amount}</td>
+          <td>{new Date(s.started_at).toLocaleString()}</td>
+        </tr>
+      ))
       : (
         <tr>
           <td colSpan="4">No hay partidas.</td>

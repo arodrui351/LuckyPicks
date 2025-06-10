@@ -25,12 +25,12 @@ export default function Games() {
                                     <h2>Slot Machine</h2>
                                 </Link>
                             </div>
-                            <div className="juego" id="FRATDual">
+                            <div className="juego" id="blackJackGame">
                                 <Link className="enlaceJuego" to={'/black-jack'} style={{ cursor: 'pointer' }}>
                                     <h2>Black Jack</h2>
                                 </Link>
                             </div>
-                            <div className="juego" id="FRATSolo">
+                            <div className="juego" id="ruleta">
                                 <Link className="enlaceJuego" to={'/Games'} style={{ cursor: 'pointer' }}>
                                     <h2>Ruleta</h2>
                                 </Link>

@@ -24,6 +24,9 @@ export default function GamesPerformance() {
         return isNaN(n) ? '0.00' : n.toFixed(2);
     };
 
+    const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
+    const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+
     const fetchData = async () => {
         setLoading(true);
         setError(null);
@@ -33,31 +36,38 @@ export default function GamesPerformance() {
             if (startDate) params.append('start_date', startDate);
             if (endDate) params.append('end_date', endDate);
 
-            const res = await fetch(`http://localhost:8000/api/games/performance?${params.toString()}`);
+            const res = await fetch(`${API_URL}/games/performance?${params.toString()}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Content-Type': 'application/json',
+                },
+            });
 
-            const contentType = res.headers.get('content-type');
             if (!res.ok) {
                 const text = await res.text();
                 throw new Error(`Error en respuesta: ${text}`);
             }
 
+            const contentType = res.headers.get('content-type');
             if (!contentType || !contentType.includes('application/json')) {
                 const text = await res.text();
                 throw new Error(`Respuesta no JSON: ${text}`);
             }
 
             const data = await res.json();
-
             setPerformance(data.performance || []);
             setTopIntervals(data.top_intervals || []);
+
         } catch (err) {
             setError(err.message);
             setPerformance([]);
             setTopIntervals([]);
+        } finally {
+            setLoading(false);
         }
-
-        setLoading(false);
     };
+
 
     useEffect(() => {
         fetchData();

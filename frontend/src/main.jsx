@@ -13,6 +13,7 @@ import BlackJack from './pages/components/BlackJack.jsx';
 import AdminView from './pages/components/AdminView.jsx';
 import GamesPerformance from './pages/components/GamesPerformance.jsx';
 import Banned from './pages/components/Banned.jsx';
+import UserHistory from './pages/components/UserHistory.jsx';
 
 const getCookie = (name) => {
   const cookies = document.cookie.split('; ').reduce((acc, cookieStr) => {
@@ -130,7 +131,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           element={
             isUserBanned ? (
               <Navigate to="/banned" replace />
-            ) : isAuthenticated && isAdmin ? (
+            ) : isAuthenticated ? (
               <Profile />
             ) : (
               <Navigate to="/Home" replace />
@@ -144,6 +145,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Navigate to="/banned" replace />
             ) : isAuthenticated && isAdmin ? (
               <AdminView />
+            ) : (
+              <Navigate to="/Home" replace />
+            )
+          }
+        />
+        <Route
+          path="/historial-usuario/:id"
+          element={
+            isUserBanned ? (
+              <Navigate to="/banned" replace />
+            ) : isAuthenticated && isAdmin ? (
+              <UserHistory />
             ) : (
               <Navigate to="/Home" replace />
             )

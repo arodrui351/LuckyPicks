@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import '../css/AdminView.css';
 
@@ -6,28 +7,47 @@ export default function AdminView() {
   const [users, setUsers] = useState([]);
   const [selected, setSel] = useState(null);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate(); // Para redireccionar al historial de usuario
 
-  const api = (path) => `http://localhost:8000/api${path}`;
+  const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
+  const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+
+  const api = (path) => `${API_URL}${path}`;
 
   const fetchJSON = async (url, opts = {}) => {
-    const res = await fetch(url, opts);
+    const res = await fetch(url, {
+      ...opts,
+      headers: {
+        'Authorization': `Bearer ${TOKEN}`, // Token para autenticación
+        'Content-Type': 'application/json',
+        ...opts.headers,
+      },
+    });
+
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
   };
 
   const load = async () => {
-    const data = await fetchJSON(api('/users'));
-    setUsers(data);
+    try {
+      const data = await fetchJSON(api('/users'));
+      setUsers(data);
+    } catch (error) {
+      console.error('Error al cargar usuarios:', error);
+    }
   };
 
   const save = async () => {
-    await fetchJSON(api(`/users/${selected.id}`), {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(selected),
-    });
-    setOpen(false);
-    load();
+    try {
+      await fetchJSON(api(`/users/${selected.id}`), {
+        method: 'PUT',
+        body: JSON.stringify(selected),
+      });
+      setOpen(false);
+      load();
+    } catch (error) {
+      console.error('Error al guardar usuario:', error);
+    }
   };
 
   useEffect(() => {
@@ -38,7 +58,10 @@ export default function AdminView() {
     setSel({ ...u, password: '', role: u.role ?? 'user' });
   };
 
-  // cuando se actualiza `selected`, abrimos el modal
+  const viewHistory = (user) => {
+    navigate(`/historial-usuario/${user.id}`); // Redirige al historial del usuario
+  };
+
   useEffect(() => {
     if (selected) {
       setOpen(true);
@@ -76,7 +99,7 @@ export default function AdminView() {
                 <button
                   className="verHistorial"
                   style={{ width: '30%', border: '1px solid #cfae58' }}
-                  onClick={() => edit(u)}
+                  onClick={() => viewHistory(u)}
                 >
                   Ver Historial
                 </button>
@@ -166,7 +189,6 @@ export default function AdminView() {
                 Cancel
               </button>
               <button className='save' onClick={save}>Save</button>
-              
             </div>
           </div>
         </>

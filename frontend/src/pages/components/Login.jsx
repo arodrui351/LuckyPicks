@@ -10,7 +10,7 @@ export default function Login() {
     const [passwordLogin, setPasswordLogin] = useState('');
     const [isSignUpVisible, setIsSignUpVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-
+    const [successMessage, setSuccessMessage] = useState('');
 
     const signUpView = () => setIsSignUpVisible(true);
     const hideSignUp = () => setIsSignUpVisible(false);
@@ -20,12 +20,15 @@ export default function Login() {
         document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; Secure; SameSite=Strict`;
     };
 
+    const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
+        setSuccessMessage('');
 
         try {
-            const res = await fetch('http://localhost:8000/api/register', {
+            const res = await fetch(`${API_URL}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,8 +43,11 @@ export default function Login() {
             const data = await res.json();
 
             if (res.ok) {
-                alert('Usuario registrado correctamente');
-                hideSignUp();
+                setSuccessMessage('Usuario registrado correctamente');
+                setTimeout(() => {
+                    hideSignUp(); // Ocultar el formulario después de unos segundos
+                    setSuccessMessage('');
+                }, 3000);
             } else {
                 setErrorMessage(data.message || 'Error al registrar');
             }
@@ -56,7 +62,7 @@ export default function Login() {
         setErrorMessage('');
 
         try {
-            const res = await fetch('http://localhost:8000/api/login', {
+            const res = await fetch(`${API_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +79,7 @@ export default function Login() {
                 localStorage.setItem('id', data.id);
                 localStorage.setItem('username', data.username);
                 localStorage.setItem('role', data.role);
-
+                localStorage.setItem('api_token', data.api_token);
                 setCookie('banned_until', data.banned_until || '');
                 setCookie('balance', data.balance || '');
 
@@ -127,7 +133,7 @@ export default function Login() {
                         <label htmlFor="password">Contraseña</label>
                     </div>
 
-                    <button style={{border:'1px solid #cfae58'}} type="submit">Iniciar sesión</button>
+                    <button style={{ border: '1px solid #cfae58' }} type="submit">Iniciar sesión</button>
                     <p style={{ color: 'white' }}>
                         ¿Aún no tienes cuenta?{' '}
                         <a style={{ cursor: 'pointer', fontSize: '1rem' }} onClick={signUpView}>
@@ -147,6 +153,10 @@ export default function Login() {
 
                     {errorMessage && (
                         <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>
+                    )}
+
+                    {successMessage && (
+                        <p style={{ color: 'green', textAlign: 'center' }}>{successMessage}</p>
                     )}
 
                     <div className="form-group">

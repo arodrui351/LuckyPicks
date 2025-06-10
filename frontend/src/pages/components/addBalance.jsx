@@ -30,12 +30,24 @@ export default function AddBalance() {
         setIsPromoInvalid(false);
     };
 
+    const API_URL = import.meta.env.VITE_API_URL; // Usa la variable del .env
+    const TOKEN = localStorage.getItem('api_token'); // Obtiene el token almacenado
+
     const updateBalance = async (amount) => {
-        const res = await fetch('http://localhost:8000/api/update-balance', {
+        const res = await fetch(`${API_URL}/update-balance`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Authorization': `Bearer ${TOKEN}`, // Token para autenticación
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({ amount, id: localStorage.getItem('id') }),
         });
+
+        if (!res.ok) {
+            console.error('Error al actualizar balance:', res.statusText);
+            return;
+        }
+
         const data = await res.json();
         const oldBalance = parseFloat(document.cookie.match(/balance=(\d+(\.\d+)?)/)?.[1] || 0);
         document.cookie = `balance=${data.balance}; path=/; max-age=2592000`;
@@ -45,16 +57,24 @@ export default function AddBalance() {
     };
 
     const registrarTransaccion = async (tipo, cantidad) => {
-        await fetch('http://localhost:8000/api/transaction', {
+        const res = await fetch(`${API_URL}/transaction`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 user_id: localStorage.getItem('id'),
                 type: tipo,
                 amount: cantidad,
             }),
         });
+
+        if (!res.ok) {
+            console.error('Error al registrar transacción:', res.statusText);
+        }
     };
+
 
     const triggerBalanceAnimation = (oldBalance, newBalance) => {
         const change = newBalance - oldBalance;
@@ -101,7 +121,7 @@ export default function AddBalance() {
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <div>
-                            <h2 style={{margin:'0px'}}>¿Deseas añadir <strong>{selectedAmount} €</strong> a tu cuenta?</h2>
+                            <h2 style={{ margin: '0px' }}>¿Deseas añadir <strong>{selectedAmount} €</strong> a tu cuenta?</h2>
                         </div>
                         <div>
                             <h3>Código Promocional</h3>

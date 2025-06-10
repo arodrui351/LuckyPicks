@@ -1,33 +1,157 @@
-#table{
+#tableContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#table {
     background-color: #09322b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
     width: 1000px;
     height: 650px;
     border: 10px solid #6b3e26;
     border-radius: 40px 40px 100% 100%;
 }
-#juego1{
+
+#table hr {
+    width: 70%;
+    background-color: #cfae58;
+    height: 2px;
+    border: 0px;
+    color: #cfae58;
+}
+
+#juego1 {
     color: white;
 }
-.botonesJuego{
+
+.card {
+    position: relative;
+    height: 161.8px;
+    width: 100px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid #cfae58;
+    background-color: #040c0d;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.card img {
+    width: 100%;
+}
+.simbol {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    margin: 0;
+    background-color: transparent;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+.value {
+    margin: 0;
+    font-size: 4rem;
+    z-index: 1;
+}
+
+.upsideDown {}
+
+.upsideDown img {
+    width: 100%;
+}
+
+#dealerBlackJack {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#playerBlackJack {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.botonesJuego {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
 }
-.botonesJuego button{
-    
+
+#blackJackButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#startGame{
+
+#blackJackButtons button {
+    width: 150px;
+    border: 1px solid #cfae58;
+}
+
+#blackJackButtons div {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+}
+
+.botonesJuego button {}
+
+#startGame {
     width: 150px;
     background-color: green;
     color: white;
 }
-#startGame:hover{
+
+#startGame:hover {
     color: white;
 }
-.apuesta{
+
+.apuesta {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
+}
+
+@media screen and (max-width: 1200px) {
+    #table {
+        width: 80%;
+        height: 500px;
+    }
+
+    #blackJackButtons div {
+        width: 80%;
+    }
+
+    .card {
+        height: 121.35px;
+        width: 75px;
+    }
+
+    .value {
+        font-size: 2.5rem;
+    }
+
+    .simbol {
+        font-size: 1rem;
+    }
 }

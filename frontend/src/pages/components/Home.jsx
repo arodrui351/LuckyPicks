@@ -2,12 +2,20 @@ import '../css/BlackJack.css';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import '../css/Home.css';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Home() {
     const [topPlayers, setTopPlayers] = useState([]);
+    const TOKEN = localStorage.getItem('api_token');
 
-    useEffect(() => {
-        fetch('http://localhost:8000/api/top-wins')
+    const fetchTopWins = () => {
+        fetch(`${API_URL}/top-wins`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${TOKEN}`,
+                'Content-Type': 'application/json',
+            },
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error en la respuesta del servidor');
@@ -20,6 +28,10 @@ export default function Home() {
             .catch(error => {
                 console.error('Error al obtener los datos:', error);
             });
+    };
+
+    useEffect(() => {
+        fetchTopWins();
     }, []);
 
     return (

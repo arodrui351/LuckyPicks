@@ -47,7 +47,7 @@
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-size 0.2s ease;
     will-change: transform;
     transform-origin: center;
     margin-bottom: 2rem;
@@ -95,7 +95,9 @@
         margin: 10px;
     }
 }
-
+.juego::before {
+    content: none;
+}
 /* Slot Machine específico */
 #slotMachineGame {
     background-color: black;
@@ -112,15 +114,16 @@
     background-position: center;
 }
 
-/* Otro juego */
-#FRATDual {
-    background-image: url("../assets/fotoPortadaInicio/FD.png");
+#blackJackGame {
+    background-image: url("../../assets/blackJack.jpg");
+    background-size: 80%;
+    background-position: center;
+    background-color: #000000;
 }
 
-#FRATDual:hover {
-    background-image: url("../assets/FRATDual.png");
+#blackJackGame:hover {
+    background-size: 100%;
 }
-
 /* Contenedor general */
 .contenedorFlex {
     width: 100%;

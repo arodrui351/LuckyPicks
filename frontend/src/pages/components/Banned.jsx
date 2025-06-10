@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
-const Banned = ({ bannedUntil  }) => {
+const Banned = ({ bannedUntil }) => {
   const bannedDate = new Date(decodeURIComponent(bannedUntil));
   const [timeLeft, setTimeLeft] = useState(bannedDate - new Date());
   const [redirect, setRedirect] = useState(false);
   const [checkedBan, setCheckedBan] = useState(false);
-    const userId = localStorage.getItem('id');
+  const userId = localStorage.getItem('id');
+
+  const API_URL = import.meta.env.VITE_API_URL;
+  const TOKEN = localStorage.getItem('api_token');
 
   useEffect(() => {
     if (timeLeft <= 0 && !checkedBan) {
       (async () => {
         try {
-          const res = await fetch('http://localhost:8000/api/check-ban', {
+          const res = await fetch(`${API_URL}/check-ban`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Authorization': `Bearer ${TOKEN}`,
+              'Content-Type': 'application/json',
+            },
             body: JSON.stringify({ userId }),
             credentials: 'include',
           });
+
+          if (!res.ok) throw new Error(`Error en la solicitud: HTTP ${res.status}`);
+
           const data = await res.json();
 
           if (data.banned === false) {
@@ -85,9 +94,9 @@ const Banned = ({ bannedUntil  }) => {
       <h2 style={{ fontSize: '3rem', color: 'red' }}>
         {formatTimeLeft(timeLeft)}
       </h2>
-      <button onClick={handleLogout} style={{ marginBottom: '1rem', width:'200px', border:'1px solid #cfae58'}}>
-          Cerrar sesión
-        </button>
+      <button onClick={handleLogout} style={{ marginBottom: '1rem', width: '200px', border: '1px solid #cfae58' }}>
+        Cerrar sesión
+      </button>
     </div>
   );
 };
