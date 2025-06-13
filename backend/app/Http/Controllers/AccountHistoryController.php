@@ -10,9 +10,13 @@ class AccountHistoryController extends Controller
 {
     public function index(Request $request)
     {
-        $userId = $request->input('user_id'); // viene desde React
+        $userId = $request->input('user_id');
         if (!$userId) {
             return response()->json(['error' => 'ID de usuario requerido'], 400);
+        }
+        $user = DB::table('users')->where('id', $userId)->first(['username']);
+        if (!$user) {
+            return response()->json(['error' => 'Usuario no encontrado'], 404);
         }
 
         $start = $request->input('start_date')
@@ -23,9 +27,8 @@ class AccountHistoryController extends Controller
             ? Carbon::parse($request->input('end_date'))->endOfDay()
             : Carbon::now()->endOfDay();
 
-        $order = $request->input('order', 'desc'); // 'asc' o 'desc'
+        $order = $request->input('order', 'desc');
 
-        // 📊 Transacciones: tipo 'spend'
         $spendTransactions = DB::table('transactions')
             ->where('user_id', $userId)
             ->where('type', 'spend')
@@ -33,7 +36,6 @@ class AccountHistoryController extends Controller
             ->orderBy('created_at', $order)
             ->get();
 
-        // 🎮 Veces jugado por juego
         $sessionsCount = DB::table('sessions')
             ->join('games', 'sessions.game_id', '=', 'games.id')
             ->select('games.name', DB::raw('COUNT(sessions.id) as plays'))
@@ -42,7 +44,6 @@ class AccountHistoryController extends Controller
             ->groupBy('games.name')
             ->get();
 
-        // 🧾 Detalle de sesiones jugadas (nombre del juego, apuesta, ganancia, fecha)
         $sessionsDetail = DB::table('sessions')
             ->join('games', 'sessions.game_id', '=', 'games.id')
             ->select(
@@ -61,6 +62,7 @@ class AccountHistoryController extends Controller
             ->get();
 
         return response()->json([
+            'user_name' => $user->username,
             'spend_transactions' => $spendTransactions,
             'sessions_count' => $sessionsCount,
             'sessions_detail' => $sessionsDetail,

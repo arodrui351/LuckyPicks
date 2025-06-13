@@ -13,35 +13,24 @@ export default function Games() {
     return (
         <div id='webGames'>
             <Header></Header>
-            <InfoBar/>
-                <div className='Titulo'>
-                    <h1>Galeria de Juegos</h1>
+            <InfoBar />
+            <div className='Titulo'>
+                <h1>Galeria de Juegos</h1>
+            </div>
+            <div className="contenedor10 linksSinEstilo">
+                <div className="todosJuegos">
+                    <div className="juego" id="slotMachineGame">
+                        <Link className="enlaceJuego" to={'/slot-machine'} style={{ cursor: 'pointer' }}>
+                            <h2>Slot Machine</h2>
+                        </Link>
+                    </div>
+                    <div className="juego" id="blackJackGame">
+                        <Link className="enlaceJuego" to={'/black-jack'} style={{ cursor: 'pointer' }}>
+                            <h2>Black Jack</h2>
+                        </Link>
+                    </div>
                 </div>
-
-                    <div className="contenedor10 linksSinEstilo">
-                        <div className="todosJuegos">
-                            <div className="juego" id="slotMachineGame">
-                                <Link className="enlaceJuego" to={'/slot-machine'} style={{ cursor: 'pointer' }}>
-                                    <h2>Slot Machine</h2>
-                                </Link>
-                            </div>
-                            <div className="juego" id="blackJackGame">
-                                <Link className="enlaceJuego" to={'/black-jack'} style={{ cursor: 'pointer' }}>
-                                    <h2>Black Jack</h2>
-                                </Link>
-                            </div>
-                            <div className="juego" id="ruleta">
-                                <Link className="enlaceJuego" to={'/Games'} style={{ cursor: 'pointer' }}>
-                                    <h2>Ruleta</h2>
-                                </Link>
-                            </div>
-                            
-                            
-                        </div>
-                </div>
-
-
-
+            </div>
         </div>
     );
 }

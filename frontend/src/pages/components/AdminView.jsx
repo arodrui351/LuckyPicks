@@ -7,10 +7,10 @@ export default function AdminView() {
   const [users, setUsers] = useState([]);
   const [selected, setSel] = useState(null);
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate(); // Para redireccionar al historial de usuario
+  const navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
-  const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+  const API_URL = import.meta.env.VITE_API_URL;
+  const TOKEN = localStorage.getItem('api_token');
 
   const api = (path) => `${API_URL}${path}`;
 
@@ -18,7 +18,7 @@ export default function AdminView() {
     const res = await fetch(url, {
       ...opts,
       headers: {
-        'Authorization': `Bearer ${TOKEN}`, // Token para autenticación
+        'Authorization': `Bearer ${TOKEN}`,
         'Content-Type': 'application/json',
         ...opts.headers,
       },

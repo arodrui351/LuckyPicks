@@ -60,7 +60,7 @@ export default function AddBalance() {
         const res = await fetch(`${API_URL}/transaction`, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                'Authorization': `Bearer ${TOKEN}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({

@@ -180,3 +180,191 @@ tr:hover {
         width: 70%;
     }
 }
+/* Reutilizable para ambos componentes */
+#mainRow,
+#historyMainRow {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding-right: 2rem;
+}
+
+#mainRow h1,
+#historyMainRow h1 {
+  text-align: center;
+  margin-right: 3rem;
+}
+
+#mainRow button,
+#historyMainRow button {
+  max-width: 240px;
+  margin-bottom: 0px !important;
+}
+
+/* Filtros */
+#profileFilters,
+#historyFilters {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-wrap: wrap;
+  padding-right: 2rem;
+}
+
+#profileFilters p,
+#historyFilters p {
+  margin-right: 10px;
+}
+#profileFilters div,
+#historyFilters div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#profileFilters select,
+#historyFilters select {
+  color: white;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding: 12px;
+}
+#profileFilters select:focus,
+#historyFilters select:focus {
+  border-color: #cfae58;
+}
+
+#profileFilters option,
+#historyFilters option {
+  color: #ccc;
+  background-color: black;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+}
+
+#profileFilters input,
+#historyFilters input {
+  width: 250px;
+  max-width: 40%;
+}
+
+/* Tablas */
+th {
+  border-bottom: 1px solid white;
+  text-align: left;
+}
+table {
+  border: 0px;
+}
+td {
+  border: none;
+}
+tr {
+  text-align: left;
+  border-bottom: 1px solid white;
+}
+thead tr:hover:first-child {
+  background-color: transparent;
+}
+tr:hover {
+  background-color: #09322b;
+  border-bottom: 1px solid #cfae58;
+}
+
+/* Layout de tablas */
+#profileAllTables,
+#historyTables {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#sessionDetails{
+    width: 100%;
+}
+#profileRightTable table{
+    width: 100%;
+}
+#profileLeftTables {
+  width: 35%;
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#profileRightTable {
+  width: 50%;
+}
+#profileRightTable table,
+#historyTables table {
+  width: 100%;
+}
+
+#transactions,
+#timesPlayed{
+  width: 400px;
+  max-width: 100%;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+  #mainRow,
+  #historyMainRow {
+    justify-content: center;
+    padding: 0;
+  }
+
+  #profileFilters,
+  #historyFilters {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0px !important;
+  }
+
+  #profileFilters div,
+  #historyFilters div {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  #profileAllTables,
+  #historyTables {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #profileLeftTables {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #profileAddBalance,
+  #profileTimesPlayed,
+  #transactions,
+  #timesPlayed,
+  #sessionDetails {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .table100,
+  #historyTables table,
+  #profileRightTable table {
+    width: 70%;
+  }
+
+  #profileRightTable {
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+}

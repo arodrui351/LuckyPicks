@@ -1,3 +1,13 @@
+Aplicacion desplegada en:
+
+https://www.luckypicks.es/
+
+https://luckypicks.es/
+
+Diseño en el enlace: 
+
+
+
 Tutorial para lanzar el proyecto
 
   Requisitos

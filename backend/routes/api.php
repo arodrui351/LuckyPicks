@@ -6,14 +6,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthLogin;
 use App\Http\Controllers\UserBalance;
 use App\Http\Controllers\TransactionController;
-// routes/api.php
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\GamePerformanceController;
 use App\Http\Controllers\BanController;
 use App\Http\Controllers\AccountHistoryController;
 
-// Rutas protegidas con Bearer Token
+// Rutas protegidas con el token de inicio de sesion
 Route::middleware('auth.token')->group(function () {
     Route::get('/top-wins', [SessionController::class, 'topWins']);
     Route::post('/account/history', [AccountHistoryController::class, 'index']);

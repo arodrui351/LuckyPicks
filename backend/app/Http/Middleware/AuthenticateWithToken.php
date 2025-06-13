@@ -5,7 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+//Este middleware obtiene un token aleatorio que se genera al iniciar sesion
+//comprueba si existe para validar las peticiones
 class AuthenticateWithToken
 {
     public function handle(Request $request, Closure $next)

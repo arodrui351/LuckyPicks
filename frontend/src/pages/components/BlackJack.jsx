@@ -21,8 +21,8 @@ export default function BlackJack() {
     const [apuesta, setApuesta] = useState(1);
     const [apuestaInvalida, setApuestaInvalida] = useState(false);
 
-    const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
-    const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+    const API_URL = import.meta.env.VITE_API_URL;
+    const TOKEN = localStorage.getItem('api_token');
 
     const updateBalance = async (amount) => {
         try {

@@ -27,6 +27,13 @@ export default function Login() {
         setErrorMessage('');
         setSuccessMessage('');
 
+        const passwordRegex = /^.{6,}$/; // Al menos 6 caracteres
+
+        if (!passwordRegex.test(password)) {
+            setErrorMessage('La contraseña debe tener al menos 6 caracteres.');
+            return;
+        }
+
         try {
             const res = await fetch(`${API_URL}/register`, {
                 method: 'POST',
@@ -56,6 +63,7 @@ export default function Login() {
             setErrorMessage('Error de red. Inténtalo más tarde.');
         }
     };
+
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
