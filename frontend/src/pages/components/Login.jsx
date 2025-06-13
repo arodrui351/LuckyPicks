@@ -20,7 +20,7 @@ export default function Login() {
         document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; Secure; SameSite=Strict`;
     };
 
-    const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,7 +52,7 @@ export default function Login() {
             if (res.ok) {
                 setSuccessMessage('Usuario registrado correctamente');
                 setTimeout(() => {
-                    hideSignUp(); // Ocultar el formulario después de unos segundos
+                    hideSignUp();
                     setSuccessMessage('');
                 }, 3000);
             } else {

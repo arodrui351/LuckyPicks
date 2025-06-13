@@ -10,6 +10,7 @@ export default function AddBalance() {
     const [promoCode, setPromoCode] = useState('');
     const [isPromoInvalid, setIsPromoInvalid] = useState(false);
 
+    //Codigo de promocion
     const validPromoCode = "LUCKYPICKS2025";
 
     const getCookieBalance = () => {
@@ -30,14 +31,15 @@ export default function AddBalance() {
         setIsPromoInvalid(false);
     };
 
-    const API_URL = import.meta.env.VITE_API_URL; // Usa la variable del .env
-    const TOKEN = localStorage.getItem('api_token'); // Obtiene el token almacenado
+    const API_URL = import.meta.env.VITE_API_URL;
+    const TOKEN = localStorage.getItem('api_token');
 
+    //Actualicamos el balance en el backend
     const updateBalance = async (amount) => {
         const res = await fetch(`${API_URL}/update-balance`, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${TOKEN}`, // Token para autenticación
+                'Authorization': `Bearer ${TOKEN}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ amount, id: localStorage.getItem('id') }),
@@ -56,6 +58,7 @@ export default function AddBalance() {
         setBalance(data.balance);
     };
 
+    //Registramos la transaccion
     const registrarTransaccion = async (tipo, cantidad) => {
         const res = await fetch(`${API_URL}/transaction`, {
             method: 'POST',
@@ -75,7 +78,7 @@ export default function AddBalance() {
         }
     };
 
-
+    //Activamos la animacion
     const triggerBalanceAnimation = (oldBalance, newBalance) => {
         const change = newBalance - oldBalance;
         const event = new CustomEvent('balanceUpdate', { detail: { newBalance, change } });

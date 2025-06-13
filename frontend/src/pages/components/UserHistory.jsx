@@ -30,12 +30,14 @@ export default function UserHistory() {
     const TOKEN = localStorage.getItem('api_token');
     const role = localStorage.getItem('role');
 
+    //Volvemos a controlar si el rol es el correcto para asegurarnos
     useEffect(() => {
         if (role !== 'Admin') {
             navigate('/');
         }
     }, [role, navigate]);
 
+    //Esta peticion nos devuelve el historial del usuario
     const fetchHistory = async () => {
         setLoading(true);
         setError(null);

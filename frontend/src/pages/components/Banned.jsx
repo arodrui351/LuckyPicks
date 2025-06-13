@@ -10,6 +10,7 @@ const Banned = ({ bannedUntil }) => {
   const API_URL = import.meta.env.VITE_API_URL;
   const TOKEN = localStorage.getItem('api_token');
 
+  //Hay una cuenta atras, cuando llega a cero, envia la fecha en la que acababa el baneo, si es la misma que la que hay en el backend desbanea al usuario, borra el localstorage con la fecha del baneo y permite que acceda a la web
   useEffect(() => {
     if (timeLeft <= 0 && !checkedBan) {
       (async () => {

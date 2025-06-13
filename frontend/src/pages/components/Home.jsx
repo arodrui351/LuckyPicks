@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 export default function Home() {
     const [topPlayers, setTopPlayers] = useState([]);
     const TOKEN = localStorage.getItem('api_token');
-
+    //Obtenemos los datos para hacer el podio
     const fetchTopWins = () => {
         fetch(`${API_URL}/top-wins`, {
             method: 'GET',

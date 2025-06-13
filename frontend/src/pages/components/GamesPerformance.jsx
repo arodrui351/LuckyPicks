@@ -24,9 +24,10 @@ export default function GamesPerformance() {
         return isNaN(n) ? '0.00' : n.toFixed(2);
     };
 
-    const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
-    const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+    const API_URL = import.meta.env.VITE_API_URL;
+    const TOKEN = localStorage.getItem('api_token');
 
+    //Peticion para obtener los datos del juego
     const fetchData = async () => {
         setLoading(true);
         setError(null);
@@ -39,7 +40,7 @@ export default function GamesPerformance() {
             const res = await fetch(`${API_URL}/games/performance?${params.toString()}`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Authorization': `Bearer ${TOKEN}`,
                     'Content-Type': 'application/json',
                 },
             });

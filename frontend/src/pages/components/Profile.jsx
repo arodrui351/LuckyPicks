@@ -22,8 +22,8 @@ export default function AccountHistory() {
 
   const userId = localStorage.getItem('id');
 
-  const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
-  const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+  const API_URL = import.meta.env.VITE_API_URL;
+  const TOKEN = localStorage.getItem('api_token');
 
   const fetchHistory = async () => {
     setLoading(true);
@@ -33,7 +33,7 @@ export default function AccountHistory() {
       const res = await fetch(`${API_URL}/account/history`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+          'Authorization': `Bearer ${TOKEN}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

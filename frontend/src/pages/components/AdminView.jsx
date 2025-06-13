@@ -13,7 +13,6 @@ export default function AdminView() {
   const TOKEN = localStorage.getItem('api_token');
 
   const api = (path) => `${API_URL}${path}`;
-
   const fetchJSON = async (url, opts = {}) => {
     const res = await fetch(url, {
       ...opts,

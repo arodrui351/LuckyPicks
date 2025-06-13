@@ -30,13 +30,15 @@ export default function Slot() {
 
     const API_URL = import.meta.env.VITE_API_URL; // URL dinámica desde el .env
     const TOKEN = localStorage.getItem('api_token'); // Obtener el token almacenado
+    //El token del login sirve para verificar que se logeo correctamente el usuario
 
+    //Esta transaccion nos sirve para saber cuanto gasto el usuario
     const registrarTransaccion = async (tipo, cantidad) => {
         try {
             const res = await fetch(`${API_URL}/transaction`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Authorization': `Bearer ${TOKEN}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
@@ -52,12 +54,13 @@ export default function Slot() {
         }
     };
 
+    //Esta peticion nos permite saber el jugador, el juego, la hora, la apuesta y el premio que recibio
     const registrarSesion = async (betAmount, winAmount, endedAt) => {
         try {
             const res = await fetch(`${API_URL}/sessions`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Authorization': `Bearer ${TOKEN}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
@@ -81,12 +84,13 @@ export default function Slot() {
         return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
     };
 
+    //Actualizamos el balance
     const updateBalance = async (amount) => {
         try {
             const res = await fetch(`${API_URL}/update-balance`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${TOKEN}`, // Se envía el Bearer Token
+                    'Authorization': `Bearer ${TOKEN}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ amount, id: localStorage.getItem('id') }),
@@ -105,7 +109,7 @@ export default function Slot() {
         }
     };
 
-
+    //Animacion de la barra superior
     const triggerBalanceAnimation = (oldBalance, newBalance) => {
         const change = newBalance - oldBalance;
         const event = new CustomEvent('balanceUpdate', { detail: { newBalance, change } });
@@ -133,6 +137,7 @@ export default function Slot() {
         });
     };
 
+    // Logica del juego
     const rollAll = async () => {
         const reels = slotRefs.map(r => r.current);
         await Promise.all(reels.map((reel, i) => roll(reel, i)));

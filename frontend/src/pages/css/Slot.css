@@ -23,7 +23,7 @@
 }
 #juego1 {
   position: relative;
-  overflow-x: hidden; /* Para evitar scroll lateral */
+  overflow-x: hidden;
 }
 @media screen and (max-width: 640px) {
 #botonesApuestaSlot{

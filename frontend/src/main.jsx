@@ -14,7 +14,7 @@ import AdminView from './pages/components/AdminView.jsx';
 import GamesPerformance from './pages/components/GamesPerformance.jsx';
 import Banned from './pages/components/Banned.jsx';
 import UserHistory from './pages/components/UserHistory.jsx';
-
+//Obtiene los datos como el rol y la fecha de baneo para permitir o denegar accesos
 const getCookie = (name) => {
   const cookies = document.cookie.split('; ').reduce((acc, cookieStr) => {
     const [key, val] = cookieStr.split('=');
