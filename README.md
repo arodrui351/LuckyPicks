@@ -10,6 +10,9 @@ https://www.canva.com/design/DAGqQVc3z9A/cP0JET-6RXWYEI2hdk6qhQ/view?utm_content
 # Presentacion:
   https://www.canva.com/design/DAGqQiJUYyM/A-dQ56CYu3Jp-DIU3FaG2g/view?utm_content=DAGqQiJUYyM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc8b9ccd667
 
+# Video de la presentacion: 
+  https://youtu.be/Dt4Ac3MDxIA
+
 # Bibliografia utilizada:
   
 ## Laravel (backend):
