@@ -34,7 +34,7 @@ https://luckypicks.es/
 
   - FileZilla (subida de archivos al servidor): https://filezilla-project.org/
 
-  - Configuración de DNS en dominios: documentación del proveedor (ej. DonDominio, Namecheap, etc.)
+  - Configuración de DNS en dominios: documentación del proveedor (IONOS)
 
 ## General:
 
