@@ -5,9 +5,9 @@ https://www.luckypicks.es/
 https://luckypicks.es/
 
 # Diseño en el enlace: 
-
+https://www.canva.com/design/DAGqQVc3z9A/cP0JET-6RXWYEI2hdk6qhQ/view?utm_content=DAGqQVc3z9A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha9e14cddee
 # Bibliografia utilizada:
-  https://www.canva.com/design/DAGqQVc3z9A/cP0JET-6RXWYEI2hdk6qhQ/view?utm_content=DAGqQVc3z9A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha9e14cddee
+  
 ## Laravel (backend):
 
   - Laravel Documentation: https://laravel.com/docs
