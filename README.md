@@ -1,14 +1,14 @@
-Aplicacion desplegada en:
+# Aplicacion desplegada en:
 
 https://www.luckypicks.es/
 
 https://luckypicks.es/
 
-Diseño en el enlace: 
+# Diseño en el enlace: 
 
-Bibliografia utilizada:
+# Bibliografia utilizada:
 
-Laravel (backend):
+## Laravel (backend):
 
   - Laravel Documentation: https://laravel.com/docs
 
@@ -18,7 +18,7 @@ Laravel (backend):
 
   - Laravel Authentication: https://laravel.com/docs/authentication
 
-React (frontend):
+## React (frontend):
 
   - React Documentation: https://react.dev/learn
 
@@ -26,7 +26,7 @@ React (frontend):
 
   - Vite (React + build tool): https://vitejs.dev/guide/
 
-Despliegue y servidor:
+## Despliegue y servidor:
 
   - Certbot (SSL gratuito Let's Encrypt): https://certbot.eff.org/
 
@@ -36,11 +36,11 @@ Despliegue y servidor:
 
   - Configuración de DNS en dominios: documentación del proveedor (ej. DonDominio, Namecheap, etc.)
 
-General:
+## General:
 
   - Stack Overflow (consultas específicas): https://stackoverflow.com/
 
-Tutoriales vistos:
+## Tutoriales vistos:
 
   - Slot machine: https://www.youtube.com/watch?v=boI2B4Gpp34&list=PL4EHQd0TXP3udFYfDDtPlwQxRvx6HQY-j&ab_channel=CodeJos
 
@@ -51,13 +51,13 @@ Tutoriales vistos:
 
       - https://www.youtube.com/watch?v=bMYCWccL-3U&list=PL4EHQd0TXP3udFYfDDtPlwQxRvx6HQY-j&index=4&ab_channel=KennyYipCoding
 
-Tutorial para lanzar el proyecto
+# Tutorial para lanzar el proyecto
 
-  Requisitos
+  ## Requisitos
     Xampp
     Tener instalado PHP y Composer
 
-  Pasos
+  ## Pasos
   1. Inicie MySQL y apache en xampp
   2. Revise el .env dentro de la carpeta Backend para poner una cuenta de mysql valida
   3. Dentro de la carpeta Backend ejecute el comando php artisan migrate (Creara la base de datos con sus tablas y relaciones)
