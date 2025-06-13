@@ -170,7 +170,7 @@ export default function AccountHistory() {
         <div id="profileLeftTables">
           <div id="profileTimesPlayed">
             <h2 onClick={() => setShowSessionsCount(prev => !prev)} style={{ cursor: 'pointer' }}>
-              Juegos jugados {showSessionsCount ? '▲' : '▼'}
+              Juegos jugados {showSessionsCount ? '▼' : '▲'}
             </h2>
             {showSessionsCount && (
               <table className='table100'>
@@ -187,7 +187,7 @@ export default function AccountHistory() {
 
           <div id="profileAddBalance">
             <h2 onClick={() => setShowSpendTransactions(prev => !prev)} style={{ cursor: 'pointer' }}>
-              Transacciones {showSpendTransactions ? '▲' : '▼'}
+              Transacciones {showSpendTransactions ? '▼' : '▲'}
             </h2>
             {showSpendTransactions && (
               <table border="1" cellPadding="5" className='table100'>
@@ -205,7 +205,7 @@ export default function AccountHistory() {
 
         <div id="profileRightTable">
           <h2 onClick={() => setShowSessionDetails(prev => !prev)} style={{ cursor: 'pointer' }}>
-            Historial {showSessionDetails ? '▲' : '▼'}
+            Historial {showSessionDetails ? '▼' : '▲'}
           </h2>
           {showSessionDetails && (
             <table border="1" cellPadding="5" className='table100'>
