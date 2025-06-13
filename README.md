@@ -6,6 +6,10 @@ https://luckypicks.es/
 
 # Diseño en el enlace: 
 https://www.canva.com/design/DAGqQVc3z9A/cP0JET-6RXWYEI2hdk6qhQ/view?utm_content=DAGqQVc3z9A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha9e14cddee
+
+# Presentacion:
+  https://www.canva.com/design/DAGqQiJUYyM/GbOHPsbBGwUIx3vPd4n1cA/edit?utm_content=DAGqQiJUYyM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 # Bibliografia utilizada:
   
 ## Laravel (backend):
