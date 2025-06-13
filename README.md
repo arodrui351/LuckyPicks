@@ -6,7 +6,50 @@ https://luckypicks.es/
 
 Diseño en el enlace: 
 
+Bibliografia utilizada:
 
+Laravel (backend):
+
+  - Laravel Documentation: https://laravel.com/docs
+
+  - Laravel Migrations: https://laravel.com/docs/migrations
+
+  - Laravel Routing: https://laravel.com/docs/routing
+
+  - Laravel Authentication: https://laravel.com/docs/authentication
+
+React (frontend):
+
+  - React Documentation: https://react.dev/learn
+
+  - React Router DOM: https://reactrouter.com/en/main
+
+  - Vite (React + build tool): https://vitejs.dev/guide/
+
+Despliegue y servidor:
+
+  - Certbot (SSL gratuito Let's Encrypt): https://certbot.eff.org/
+
+  - Apache Virtual Hosts: https://httpd.apache.org/docs/current/vhosts/
+
+  - FileZilla (subida de archivos al servidor): https://filezilla-project.org/
+
+  - Configuración de DNS en dominios: documentación del proveedor (ej. DonDominio, Namecheap, etc.)
+
+General:
+
+  - Stack Overflow (consultas específicas): https://stackoverflow.com/
+
+Tutoriales vistos:
+
+  - Slot machine: https://www.youtube.com/watch?v=boI2B4Gpp34&list=PL4EHQd0TXP3udFYfDDtPlwQxRvx6HQY-j&ab_channel=CodeJos
+
+  - Cartas:
+      - https://www.youtube.com/watch?v=c0eigGnotm0&list=PL4EHQd0TXP3udFYfDDtPlwQxRvx6HQY-j&index=2&ab_channel=VictorTalamantes
+
+      - https://www.youtube.com/watch?v=FIEVxNdnEow&list=PL4EHQd0TXP3udFYfDDtPlwQxRvx6HQY-j&index=3&ab_channel=SergioDevWeb
+
+      - https://www.youtube.com/watch?v=bMYCWccL-3U&list=PL4EHQd0TXP3udFYfDDtPlwQxRvx6HQY-j&index=4&ab_channel=KennyYipCoding
 
 Tutorial para lanzar el proyecto
 
