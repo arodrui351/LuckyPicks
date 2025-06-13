@@ -8,7 +8,7 @@ https://luckypicks.es/
 https://www.canva.com/design/DAGqQVc3z9A/cP0JET-6RXWYEI2hdk6qhQ/view?utm_content=DAGqQVc3z9A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha9e14cddee
 
 # Presentacion:
-  https://www.canva.com/design/DAGqQiJUYyM/GbOHPsbBGwUIx3vPd4n1cA/edit?utm_content=DAGqQiJUYyM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+  https://www.canva.com/design/DAGqQiJUYyM/A-dQ56CYu3Jp-DIU3FaG2g/view?utm_content=DAGqQiJUYyM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc8b9ccd667
 
 # Bibliografia utilizada:
   
